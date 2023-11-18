@@ -22,7 +22,7 @@ on:
       armbian_board:
         description: "Select device board."
         required: false
-        default: "all"
+        default: "s905x"
         type: choice
         options:
           - all
@@ -165,10 +165,11 @@ on:
       kernel_repo:
         description: "Set the kernel repository."
         required: false
-        default: "ophub/kernel"
+        default: "jinglei-dot/kernel"
         type: choice
         options:
           - ophub/kernel
+          - jinglei-dot/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -198,11 +199,12 @@ on:
       builder_name:
         description: "Set Armbian builder signature."
         required: false
-        default: "ophub"
+        default: "jinglei"
         type: choice
         options:
           - ophub
           - angel
+          - jinglei
           - yourname
 
 env:
@@ -278,7 +280,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Rebuild Armbian
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: jinglei-dot/amlogic-s9xxx-armbian@main
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: armbian
