@@ -200,9 +200,12 @@ init_var() {
 
     # Receive the value entered by the [ -r ] parameter
     input_r_value="${repo_owner//https\:\/\/github\.com\//}"
+    echo -e "${INFO} Start Initializing  [ input_r_value=${input_r_value} repo_owner=${repo_owner} ]..."
     code_owner="$(echo "${input_r_value}" | awk -F '@' '{print $1}' | awk -F '/' '{print $1}')"
     code_repo="$(echo "${input_r_value}" | awk -F '@' '{print $1}' | awk -F '/' '{print $2}')"
     code_branch="$(echo "${input_r_value}" | awk -F '@' '{print $2}')"
+    echo -e "${INFO} Inited  [ code_owner=${code_owner} code_repo=${code_repo} code_branch=${code_branch} repo_branch=${repo_branch}]..."
+
     #
     [[ -n "${code_owner}" ]] || error_msg "The [ -r ] parameter is invalid."
     [[ -n "${code_branch}" ]] || code_branch="${repo_branch}"
