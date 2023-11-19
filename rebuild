@@ -6,13 +6,13 @@
 # warranty of any kind, whether express or implied.
 #
 # This file is a part of the Rebuild Armbian
-# https://github.com/ophub/amlogic-s9xxx-armbian
+# https://github.com//amlogic-s9xxx-armbian
 #
 # Description: Run on x86_64 Ubuntu-22.04, Rebuild armbian.
 # Copyright (C) 2021~ https://www.armbian.com
 # Copyright (C) 2021~ https://github.com/unifreq
-# Copyright (C) 2021~ https://github.com/ophub/amlogic-s9xxx-armbian/blob/main/CONTRIBUTORS.md
-# Copyright (C) 2021~ https://github.com/ophub/amlogic-s9xxx-armbian
+# Copyright (C) 2021~ https://github.com//amlogic-s9xxx-armbian/blob/main/CONTRIBUTORS.md
+# Copyright (C) 2021~ https://github.com//amlogic-s9xxx-armbian
 #
 # Command: sudo ./rebuild
 # Command optional parameters please refer to the source code repository
@@ -71,7 +71,7 @@ os_release_file="etc/os-release"
 # Set banner's ${BOARD_NAME}: such as [ s905x3 ]
 armbian_release_file="etc/armbian-release"
 # Add custom armbian information
-ophub_release_file="etc/ophub-release"
+_release_file="etc/-release"
 
 # U-BOOT files download repository
 uboot_repo="https://github.com/ophub/u-boot/tree/main/u-boot"
@@ -84,7 +84,7 @@ firmware_repo="https://github.com/ophub/firmware/tree/main/firmware"
 firmware_repo="${firmware_repo//tree\/main/trunk}"
 
 # Set the kernel download repository from github.com
-kernel_repo="https://github.com/ophub/kernel"
+kernel_repo="https://github.com/jinglei-dot/kernel"
 # Set the tags(kernel_xxx) of the default kernel that can be replaced via the [ -u ] parameter
 default_tags="stable"
 # Set the tags(kernel_xxx) of the specific kernel, such as 5.15.y, 6.1.y, etc.
@@ -995,37 +995,37 @@ refactor_rootfs() {
     )
 
     # Add custom Armbian information
-    echo "PLATFORM='${PLATFORM}'" >>${ophub_release_file}
-    echo "VERSION_CODEID='${release_codeid}'" >>${ophub_release_file}
-    echo "VERSION_CODENAME='${release_codename}'" >>${ophub_release_file}
-    echo "MODEL_ID='${MODEL_ID}'" >>${ophub_release_file}
-    echo "MODEL_NAME='${MODEL_NAME}'" >>${ophub_release_file}
-    echo "SOC='${SOC}'" >>${ophub_release_file}
-    echo "FDTFILE='${FDTFILE}'" >>${ophub_release_file}
-    echo "FAMILY='${FAMILY}'" >>${ophub_release_file}
-    echo "BOARD='${board}'" >>${ophub_release_file}
-    echo "KERNEL_REPO='${kernel_repo}'" >>${ophub_release_file}
-    echo "KERNEL_TAGS='${KERNEL_TAGS}'" >>${ophub_release_file}
-    echo "KERNEL_VERSION='${kernel}'" >>${ophub_release_file}
-    echo "KERNEL_BACKUP='yes'" >>${ophub_release_file}
-    echo "GITHUB_CDN=''" >>${ophub_release_file}
-    echo "BOOT_CONF='${BOOT_CONF}'" >>${ophub_release_file}
-    echo "ROOTFS_TYPE='${rootfs_type}'" >>${ophub_release_file}
-    echo "DISK_TYPE='usb'" >>${ophub_release_file}
-    echo "AMPART_STATUS='no'" >>${ophub_release_file}
-    echo "MLUBOOT_STATUS='no'" >>${ophub_release_file}
-    echo "MAINLINE_UBOOT='/usr/lib/u-boot/${MAINLINE_UBOOT}'" >>${ophub_release_file}
-    echo "BOOTLOADER_IMG='/usr/lib/u-boot/${BOOTLOADER_IMG}'" >>${ophub_release_file}
+    echo "PLATFORM='${PLATFORM}'" >>${_release_file}
+    echo "VERSION_CODEID='${release_codeid}'" >>${_release_file}
+    echo "VERSION_CODENAME='${release_codename}'" >>${_release_file}
+    echo "MODEL_ID='${MODEL_ID}'" >>${_release_file}
+    echo "MODEL_NAME='${MODEL_NAME}'" >>${_release_file}
+    echo "SOC='${SOC}'" >>${_release_file}
+    echo "FDTFILE='${FDTFILE}'" >>${_release_file}
+    echo "FAMILY='${FAMILY}'" >>${_release_file}
+    echo "BOARD='${board}'" >>${_release_file}
+    echo "KERNEL_REPO='${kernel_repo}'" >>${_release_file}
+    echo "KERNEL_TAGS='${KERNEL_TAGS}'" >>${_release_file}
+    echo "KERNEL_VERSION='${kernel}'" >>${_release_file}
+    echo "KERNEL_BACKUP='yes'" >>${_release_file}
+    echo "GITHUB_CDN=''" >>${_release_file}
+    echo "BOOT_CONF='${BOOT_CONF}'" >>${_release_file}
+    echo "ROOTFS_TYPE='${rootfs_type}'" >>${_release_file}
+    echo "DISK_TYPE='usb'" >>${_release_file}
+    echo "AMPART_STATUS='no'" >>${_release_file}
+    echo "MLUBOOT_STATUS='no'" >>${_release_file}
+    echo "MAINLINE_UBOOT='/usr/lib/u-boot/${MAINLINE_UBOOT}'" >>${_release_file}
+    echo "BOOTLOADER_IMG='/usr/lib/u-boot/${BOOTLOADER_IMG}'" >>${_release_file}
     if [[ "${PLATFORM}" == "rockchip" ]]; then
-        echo "TRUST_IMG='/usr/lib/${TRUST_IMG}'" >>${ophub_release_file}
+        echo "TRUST_IMG='/usr/lib/${TRUST_IMG}'" >>${_release_file}
     elif [[ "${PLATFORM}" == "amlogic" ]]; then
-        echo "UBOOT_OVERLOAD='${UBOOT_OVERLOAD}'" >>${ophub_release_file}
+        echo "UBOOT_OVERLOAD='${UBOOT_OVERLOAD}'" >>${_release_file}
     fi
-    echo "BUILD_REPOSITORY='github.com/armbian/build'" >>${ophub_release_file}
-    echo "REBUILD_REPOSITORY='github.com/ophub/amlogic-s9xxx-armbian'" >>${ophub_release_file}
-    echo "CONTRIBUTORS='${CONTRIBUTORS}'" >>${ophub_release_file}
-    echo "BUILDER_NAME='${builder_name}'" >>${ophub_release_file}
-    echo "PACKAGED_DATE='$(date +%Y-%m-%d)'" >>${ophub_release_file}
+    echo "BUILD_REPOSITORY='github.com/armbian/build'" >>${_release_file}
+    echo "REBUILD_REPOSITORY='github.com//amlogic-s9xxx-armbian'" >>${_release_file}
+    echo "CONTRIBUTORS='${CONTRIBUTORS}'" >>${_release_file}
+    echo "BUILDER_NAME='${builder_name}'" >>${_release_file}
+    echo "PACKAGED_DATE='$(date +%Y-%m-%d)'" >>${_release_file}
 
     sync && sleep 3
 }
