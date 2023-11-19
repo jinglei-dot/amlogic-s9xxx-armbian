@@ -84,7 +84,7 @@ firmware_repo="https://github.com/ophub/firmware/tree/main/firmware"
 firmware_repo="${firmware_repo//tree\/main/trunk}"
 
 # Set the kernel download repository from github.com
-kernel_repo="https://github.com/ophub/kernel"
+kernel_repo="https://github.com/jinglei-dot/kernel"
 # Set the tags(kernel_xxx) of the default kernel that can be replaced via the [ -u ] parameter
 default_tags="stable"
 # Set the tags(kernel_xxx) of the specific kernel, such as 5.15.y, 6.1.y, etc.
@@ -1029,7 +1029,7 @@ refactor_rootfs() {
         echo "UBOOT_OVERLOAD='${UBOOT_OVERLOAD}'" >>${ophub_release_file}
     fi
     echo "BUILD_REPOSITORY='github.com/armbian/build'" >>${ophub_release_file}
-    echo "REBUILD_REPOSITORY='github.com/ophub/amlogic-s9xxx-armbian'" >>${ophub_release_file}
+    echo "REBUILD_REPOSITORY='github.com/jinglei-dot/amlogic-s9xxx-armbian'" >>${ophub_release_file}
     echo "CONTRIBUTORS='${CONTRIBUTORS}'" >>${ophub_release_file}
     echo "BUILDER_NAME='${builder_name}'" >>${ophub_release_file}
     echo "PACKAGED_DATE='$(date +%Y-%m-%d)'" >>${ophub_release_file}
