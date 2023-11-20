@@ -732,6 +732,14 @@ echo -e "${INFO} kernel signature: [ ${custom_name} ]"
 echo -e "${INFO} Latest kernel version: [ ${auto_kernel} ]"
 echo -e "${INFO} Kernel List: [ $(echo ${build_kernel[*]} | xargs) ] \n"
 
+echo -e "${INFO} Kernel input_r_value: [ ${input_r_value} ]"
+echo -e "${INFO} Kernel code_owner: [ ${code_owner} ]"
+echo -e "${INFO} Kernel code_repo: [ ${code_repo} ]"
+echo -e "${INFO} Kernel code_branch: [ ${code_branch} ]"
+echo -e "${INFO} Kernel current_path: [ ${current_path} ]"
+echo -e "${INFO} Kernel compile_path: [ ${compile_path} ]"
+echo -e "${INFO} Kernel out_kernel: [ ${out_kernel} ] \n"
+
 # Show server start information
 echo -e "${INFO} Server space usage before starting to compile: \n$(df -hT ${current_path}) \n"
 
