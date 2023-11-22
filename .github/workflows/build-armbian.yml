@@ -235,7 +235,7 @@ jobs:
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
           df -hT ${PWD}
-          git clone -q --single-branch --depth=1 --branch=main https://github.com/armbian/build.git build
+          git clone -q --single-branch --depth=1 --branch=main https://github.com/jinglei-dot/build.git build
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Compile Armbian [ ${{ inputs.set_release }} ]
