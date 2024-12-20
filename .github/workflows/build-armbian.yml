@@ -196,10 +196,11 @@ on:
       kernel_repo:
         description: "Set the kernel repository."
         required: false
-        default: "ophub/kernel"
+        default: "bingkuomiao/kernel"
         type: choice
         options:
           - ophub/kernel
+          - bingkuomiao/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -229,11 +230,12 @@ on:
       builder_name:
         description: "Set Armbian builder signature."
         required: false
-        default: "ophub"
+        default: "bingkuomiao"
         type: choice
         options:
           - ophub
           - angel
+          - bingkuomiao
           - yourname
 
 env:
@@ -335,7 +337,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Rebuild Armbian
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: bingkuomiao/amlogic-s9xxx-armbian@main
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: armbian
